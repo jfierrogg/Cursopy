@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>pagina prueba</title>
 </head>
 <body>
-    
+
+    <h2>1. Interacción con Checkbox (Sin Script)</h2>
+
+    <input type="checkbox" id="selector">
+
+    <label for="selector" class="boton-simulado">
+        Mostrar/Ocultar Contenido
+    </label>
+
+    <div id="contenido-oculto">
+        <p>¡Este texto se muestra u oculta haciendo clic en el botón!</p>
+        <p>Esto demuestra que puedes crear un **Toggle** (alternancia) usando solo HTML y CSS.</p>
+    </div>
+
 </body>
 </html>
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const btn = document.getElementById("btn-arriba");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            btn.classList.add("visible");
+        } else {
+            btn.classList.remove("visible");
+        }
+    });
+
+
+    btn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+});
